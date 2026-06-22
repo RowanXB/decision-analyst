@@ -28,15 +28,45 @@ Do not dismiss emotions mechanically. Past effort can create future-relevant con
 
 Include the value of the best forgone alternative when choosing one option consumes time, capital, attention, or social capacity that could be used elsewhere. In life decisions, opportunity cost often appears as lost recovery, lost family time, delayed learning, or reduced optionality.
 
-When opportunity cost depends on scarcity, check three sources of value:
+When opportunity cost depends on scarcity, check three sources of value and one limiting test:
 
 - Expiry value: the opportunity has a clear expiration time, application deadline, one-time window, or sequencing constraint.
 - Irreplaceability: after missing it, the user cannot easily find an alternative of similar quality, access, timing, or fit.
 - Option value: the opportunity opens future choices, relationships, credentials, information, or paths that would otherwise be unavailable.
+- Substitutability: compare the scarce opportunity with the user's best realistic substitute. Ask whether the substitute can create comparable access, feedback loops, accountability, credentials, timing, psychological activation, and learning conditions. If yes, reduce or remove the scarcity value. If the substitute exists only in theory, the user is unlikely to execute it, or it lacks the live conditions that create the value, scarcity may remain relevant.
 
-Count the scarce opportunity only when at least one source is material, future-facing, causal, and different between options. Map the effect into existing dimensions, usually Capital, Resources, Alignment, or Experience. Do not create a separate scarcity score unless the user explicitly asks to customize the framework.
+Count the scarce opportunity only when at least one source is material, future-facing, causal, different between options, and not preserved by a realistic substitute. Map the effect into existing dimensions, usually Capital, Resources, Alignment, or Experience. Do not create a separate scarcity score unless the user explicitly asks to customize the framework.
 
 Do not count FOMO as opportunity cost. "Limited seats," "looks elite," "people say it is rare," or "it feels wasteful not to go" are not relevant unless they point to a real future consequence.
+
+## Ability-Capital Value
+
+When the decision compares learning paths, career moves, product-building, entrepreneurship, leadership, research, or other capability investments, evaluate Capital by the value of the abilities produced, not by raw hours spent or the number of topics covered.
+
+Use this heuristic:
+
+`ability-capital value = user/customer value * current gap * path learning efficiency * transferability * evidence strength`
+
+Evaluate each factor qualitatively unless the user asks for a more formal model:
+
+- User/customer value: whether the ability helps the user create better outcomes for the people they serve, work with, sell to, manage, study, or build for. For personal decisions without external users, interpret this as value to the user's future self or stakeholders.
+- Current gap: whether this ability is a real bottleneck for the user's current outcomes. A weaker ability can deserve more weight when improving it unlocks other work.
+- Path learning efficiency: whether the option teaches the ability effectively through the right medium. Technical and analytical abilities may be learnable through solo projects; interviewing, organising, negotiation, leadership, collaboration, and real-world judgment often need live feedback and social context.
+- Transferability: whether the ability transfers to the user's long-term direction, such as products, research, jobs, ventures, community work, or academic goals.
+- Evidence strength: whether the option leaves credible proof of improvement, such as a portfolio, shipped product, analysis report, validated user feedback, case study, credential, network, reference, or repeated behavior change.
+
+Keep ability-capital inside the Capital dimension unless the user explicitly wants custom dimensions. Do not double-count the same ability in Alignment or Experience. Alignment may count whether the ability supports the user's values or identity; Experience may count whether learning it is enjoyable or aversive; Capital counts the durable capability and proof.
+
+Ask targeted questions when ability value could change the recommendation:
+
+- Current level: "How strong are you now at each ability on a 0-5 scale?"
+- Bottleneck: "Which missing ability is most limiting your outcomes right now?"
+- User value: "Who benefits if you improve this ability, and what outcome improves for them?"
+- Plan specificity: "What exactly would you do under each option, week by week?"
+- Substitute quality: "Could the substitute create comparable real-world feedback, accountability, access, and evidence?"
+- Proof: "What artifact, relationship, validated result, or behavior change would prove the ability improved?"
+
+For product-building decisions, explicitly consider user-facing abilities such as problem discovery, user interviewing, data analysis, engineering execution, prototyping, stakeholder communication, distribution, and iteration. Compare the path that develops the user's current bottleneck most efficiently, not the path that looks most prestigious or comprehensive.
 
 ## Default Life-Decision Dimensions
 
@@ -66,7 +96,7 @@ Do not evaluate the emotional safety produced by money here. Only score the reso
 
 Measure whether the choice accumulates durable future capital.
 
-Include skills, degree progress, grades, research experience, portfolio, network, reputation, career credibility, and entrepreneurial experience.
+Include skills, degree progress, grades, research experience, portfolio, network, reputation, career credibility, entrepreneurial experience, and ability-capital that creates value for users, customers, collaborators, or future stakeholders.
 
 Core question: will this choice make the user stronger and more competitive in the future?
 

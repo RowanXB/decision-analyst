@@ -1,6 +1,6 @@
 interface:
   display_name: "Decision Analyst"
-  short_description: "Relevant-cost decision analysis"
-  default_prompt: "Use $decision-analyst to compare my options with relevant-cost analysis."
+  short_description: "Relevant-cost and ability-value decision analysis"
+  default_prompt: "Use $decision-analyst to compare my options with relevant-cost and ability-value analysis."
 policy:
   allow_implicit_invocation: true

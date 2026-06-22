@@ -1,6 +1,6 @@
 ---
 name: decision-analyst
-description: Use this skill for decision analysis using relevant-cost thinking, sunk-cost exclusion, scarcity-aware opportunity cost, dimension-by-dimension cost-benefit analysis, incremental benefits, and weighted scoring across Sustainability, Resources, Capital, Experience, and Alignment. Explicitly trigger when the user mentions $decision-analyst, decision-analyst, 决策分析 skill, or asks to use this skill. Also implicitly trigger when the user asks for help choosing, comparing options, deciding whether to continue or quit, evaluating tradeoffs, ignoring sunk costs, clarifying opportunity costs, distinguishing real option value from FOMO, or making a values-based life or business decision in Chinese or English.
+description: Use this skill for decision analysis using relevant-cost thinking, sunk-cost exclusion, scarcity-aware opportunity cost, substitutability checks, dimension-by-dimension cost-benefit analysis, incremental benefits, ability-capital value for user-facing outcomes, and weighted scoring across Sustainability, Resources, Capital, Experience, and Alignment. Explicitly trigger when the user mentions $decision-analyst, decision-analyst, 决策分析 skill, or asks to use this skill. Also implicitly trigger when the user asks for help choosing, comparing options, deciding whether to continue or quit, evaluating tradeoffs, ignoring sunk costs, clarifying opportunity costs, distinguishing real option value from FOMO, comparing learning paths or career-capital investments, or making a values-based life or business decision in Chinese or English.
 ---
 
 # Decision Analyst
@@ -23,6 +23,8 @@ Use these operating lenses throughout the analysis:
 - Difference-making only: include a factor only when at least one option changes it and the change is material enough to affect the recommendation or the user's peace of mind.
 - Opportunity cost: choosing one option consumes time, capital, attention, or social capacity that could have gone to the best forgone alternative.
 - Scarcity-aware opportunity cost: count a forgone opportunity only when choosing another option loses a future opportunity that is hard to replace, time-limited, or expands future options. Do not count mere "limited seats," prestige, or "it would be a pity not to go" unless they create material future consequences.
+- Substitutability-aware scarcity: compare a scarce opportunity against the user's best realistic substitute, not an idealized alternative. If the substitute can create similar access, feedback, accountability, credentials, or learning outcomes and the user can realistically execute it, reduce the scarcity value. If the substitute exists only in theory or lacks the live conditions that make the opportunity valuable, scarcity may remain relevant.
+- Ability value: when options build different skills, judge Capital by the skill's future value to the user or the people the user serves, the user's current gap, the option's learning efficiency, transferability, and evidence strength. Do not treat all skills as equally valuable just because they are skills.
 - Full analysis, compressed presentation: simple decisions may receive a compact answer, but the analysis process must still cover exclusions, every option-dimension cost-benefit cell, scarcity checks, uncertainty, and weight rules.
 - Expected value versus survivability: separate the option with the best expected score from the option with the safest downside when risk could harm health, finances, relationships, or irreversible life direction.
 - Values are weights, not vibes: values must affect the analysis through explicit weights, rankings, or stated priorities, not vague language that hides the tradeoff.
@@ -67,7 +69,9 @@ For each option, list only incremental future consequences. For life or personal
 
 For every option-dimension cell, complete the `Benefits / Costs / Net assessment / Key uncertainty` analysis before assigning or inferring an impact score. Compression changes only how much of that analysis is shown to the user. For simple decisions, summarize each completed cell compactly; for high-stakes or ambiguous decisions, show the reasoning in more detail. If a dimension has no material cost or benefit, say so instead of inventing one. Use the net assessment to justify the later -5 to +5 impact score.
 
-For scarce opportunity claims, apply the `expiry value / irreplaceability / option value` test. Include scarcity only when it creates a material, causal future consequence; map it into the existing dimensions. If scarcity is only limited seats, prestige, social proof, or anticipated regret, label it as FOMO and exclude it.
+For scarce opportunity claims, apply the `expiry value / irreplaceability / option value / substitutability` test. Include scarcity only when it creates a material, causal future consequence after comparing the opportunity with realistic substitutes; map it into the existing dimensions. If scarcity is only limited seats, prestige, social proof, or anticipated regret, label it as FOMO and exclude it.
+
+For learning, career, product-building, or capability-investment decisions, analyze Capital with an ability-value lens before scoring. Ask whether each option builds abilities that create future user/customer/stakeholder value, closes a real personal skill gap, is hard to learn through substitutes, transfers to the user's long-term direction, and leaves evidence such as a portfolio, case study, credential, network, or validated feedback.
 
 For business or monetary-only decisions, calculate incremental financial consequences before asking for values or mapping non-financial effects into the five dimensions. Use this template:
 
@@ -89,7 +93,8 @@ Ask concise questions whenever the answer affects the recommendation:
 - If `user-values.json` exists but is invalid, state that saved weights were found but cannot be used, briefly name the issue, and ask the user to revise or normalize them.
 - Ask the user to rate each option's impact on each dimension, preferably on a -5 to +5 scale where 0 means no meaningful difference from the baseline.
 - Ask for probabilities or scenario ranges when outcomes are uncertain.
-- Ask expiry, irreplaceability, and option-value questions when a claimed opportunity cost depends on scarcity.
+- Ask expiry, irreplaceability, option-value, and substitutability questions when a claimed opportunity cost depends on scarcity.
+- When different options build different abilities, ask concise questions about the user's current level, bottleneck skill gaps, long-term value of each ability, concrete plan for each option, realistic substitutes, and likely evidence of learning. Useful prompts include: "Which ability is currently limiting your outcomes most?", "Who benefits if you improve this ability, and how?", "What exactly would you do instead, week by week?", "Could the substitute create comparable real-world feedback, accountability, and access?", and "What artifact, relationship, or validated result would prove the ability improved?"
 - Ask for missing facts that could change the top-ranked option.
 
 If no valid saved or user-provided weights are available, stop before weighted scoring and ask for weights. You may provide an unweighted comparison of relevant consequences and a clearly labeled non-weighted lean when one option is dominated, risk-protective, or materially stronger on the user's stated priorities. Do not produce weighted totals, a weighted winner, or a weighted recommendation until the user provides weights.
@@ -145,7 +150,8 @@ Run at least one sensitivity check:
 - Identify the assumption or weight that would need to change to reverse the recommendation.
 - Flag dominated options: an option is dominated when another option is at least as good on every relevant dimension and better on at least one.
 - Separate "best expected score" from "safest option" when downside risk matters.
-- Test whether any scarcity-based opportunity cost survives the expiry, irreplaceability, and option-value checks; remove it if it is only FOMO.
+- Test whether any scarcity-based opportunity cost survives the expiry, irreplaceability, option-value, and substitutability checks; remove it if it is only FOMO or if a realistic substitute preserves the same future value.
+- For ability-building decisions, test whether the recommendation changes when the user's biggest bottleneck skill, the user/customer value of each ability, or the feasibility of the substitute plan is revised.
 
 ### 7. Output Format
 
@@ -154,7 +160,7 @@ Use this structure unless the user asks for another format:
 1. Decision frame: one sentence plus options.
 2. Excluded factors: sunk/common/non-changing items and why excluded.
 3. Relevant consequences: dimension-by-dimension cost-benefit analysis for every option across Sustainability, Resources, Capital, Experience, and Alignment.
-4. Weights and assumptions: show whether weights were discovered from skill-root `user-values.json` or provided by the user. If no valid weights are available, ask for weights and stop before scoring.
+4. Weights and assumptions: show whether weights were discovered from skill-root `user-values.json` or provided by the user. For ability-building decisions, also show the inferred ability-value assumptions and substitute plan assumptions. If no valid weights are available, ask for weights and stop before scoring.
 5. Scoring table: dimensions, weights, option impact scores, weighted totals. Include this only after valid weights are available.
 6. Recommendation: top option, why it wins, confidence level, and what could change the answer. If weights are missing, provide only a non-weighted lean or a pure financial relevant-cost recommendation, explicitly labeled as such.
 7. Next question or action: only the highest-value missing information or next step.
@@ -172,7 +178,8 @@ Keep the conclusion candid. If scores are close, say so and explain the tradeoff
 | User refuses weights but wants a recommendation | Explain that only an unweighted tradeoff summary is possible | Give a conditional recommendation based on stated priorities, not weighted totals |
 | One option is dominated without weights | Label the conclusion as a non-weighted lean and explain the domination | Ask for weights only if the user wants a weighted score or the tradeoff is close |
 | Decision is purely monetary | Calculate incremental net benefit and sensitivity before asking for values | Recommend the higher net-benefit option if non-financial tradeoffs are immaterial |
-| Scarcity claim may be FOMO | Ask whether the opportunity has expiry value, irreplaceability, or option value | Exclude it if scarcity, prestige, or regret is the only evidence |
+| Scarcity claim may be FOMO | Ask whether the opportunity has expiry value, irreplaceability, option value, and weak substitutability | Exclude it if scarcity, prestige, or regret is the only evidence, or if a realistic substitute preserves the same value |
+| Options build different abilities | Ask about current level, bottleneck gap, user/customer value, learning efficiency, transferability, concrete plan, substitutes, and evidence | Score Capital through the ability-value lens; do not assume technical, social, analytical, or leadership skills have equal value in context |
 | Impact scores are uncertain | Use ranges, confidence labels, and the value of information | Recommend the missing fact or reversible test that most improves the decision |
 | Top expected-score option has serious downside risk | Separate best expected score from safest option | Ask whether downside protection or upside maximization should dominate |
 | Skill root is not writable | Do not write `user-values.json`; keep weights in the conversation | Ask for a writable path only if the user still wants persistence |
@@ -187,6 +194,8 @@ Do not do these:
 - Do not replace dimension-level cost-benefit analysis with bare scores or one-line labels.
 - Do not count scarcity as opportunity cost merely because an option has limited seats, elite branding, social proof, or anticipated regret.
 - Do not count an allegedly rare opportunity unless its expiry value, irreplaceability, or option value changes the user's future options or outcomes.
+- Do not treat a scarce opportunity as valuable without comparing it to the user's best realistic substitute.
+- Do not score skill-building options by raw skill quantity; consider the ability's user-facing value, current bottleneck gap, learning efficiency, transferability, and evidence.
 - Do not output weighted totals, a weighted winner, or a weighted recommendation without valid weights.
 - Do not withhold a clearly labeled non-weighted lean when one option is dominated, risk-protective, or strongly aligned with priorities the user has already stated.
 - Do not ask for five-dimension weights before giving the relevant-cost answer to a purely monetary decision with no material non-financial tradeoff.

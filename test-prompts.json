@@ -23,5 +23,10 @@
     "id": 5,
     "prompt": "Use $decision-analyst. Should I keep building my startup for another year or take a stable job offer? The startup is exciting but draining and uncertain; the job pays well but may slow my founder learning.",
     "expected": "Frame the two options and analyze Sustainability, Resources, Capital, Experience, and Alignment separately. For each dimension and each option, complete benefits, costs, net assessment, and key uncertainty analysis before any impact score. Compact output may summarize the completed cells, but must not reduce the analysis process or collapse the five-dimensional analysis into bare scores. Stop before weighted totals if weights are missing."
+  },
+  {
+    "id": 6,
+    "prompt": "Use $decision-analyst. I can attend a two-week in-person organising programme, or use the same time to self-study data analysis and build a product. I lack real-world user contact, interviewing, and collaboration skills, but I also need data and engineering skills. Help me decide.",
+    "expected": "Treat the options as competing ability-building paths. Ask about current level, bottleneck gaps, long-term user/customer value, concrete self-study plan, substitute quality, and evidence of learning. Compare the in-person programme's scarcity against realistic substitutes rather than treating limited seats as decisive. Score Capital using ability-capital value, including user-facing value, current gap, learning efficiency, transferability, and evidence strength. Stop before weighted totals if weights are missing."
   }
 ]

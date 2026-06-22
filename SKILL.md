@@ -15,11 +15,14 @@ For life or personal decisions, default to five dimensions: Sustainability, Reso
 
 Analyze only future consequences that can change because the user chooses one option instead of another. Exclude past, unrecoverable costs and any cost or benefit that is the same across all options. Include opportunity costs, avoidable costs, incremental benefits, risks, and future psychological or relational consequences only when they differ by option.
 
+Every evaluation is relative. Cost and benefit exist only as differences between options, so no option can be evaluated on its own. Judging a single option in isolation is meaningless: the same outcome is a benefit against a worse alternative and a cost against a better one, and a number assigned to one option in a vacuum carries no information. Anchor every consequence, score, and recommendation to an explicit comparison — to a named baseline option or directly to the other options — and never score an option except as a difference from something else. Require at least two options before any evaluation. If the user supplies only one option, there is no decision yet; ask what alternative (including the status-quo or do-nothing path) it is being weighed against before analyzing.
+
 ## Mental Models
 
 Use these operating lenses throughout the analysis:
 
 - From-here-forward: the decision starts now. Past spending, effort, history, and identity commitments matter only when they create future consequences that differ by option.
+- Relative-only evaluation: every cost, benefit, and score is a comparison between options, never a standalone property of one option. A value assigned to an option in isolation has no meaning; it becomes meaningful only against a baseline option or the other alternatives. With only one option there is nothing to evaluate. This is the comparative core of relevant-cost thinking, and it is the lens that makes "difference-making only" enforceable.
 - Difference-making only: include a factor only when at least one option changes it and the change is material enough to affect the recommendation or the user's peace of mind.
 - Opportunity cost: choosing one option consumes time, capital, attention, or social capacity that could have gone to the best forgone alternative.
 - Scarcity-aware opportunity cost: count a forgone opportunity only when choosing another option loses a future opportunity that is hard to replace, time-limited, or expands future options. Do not count mere "limited seats," prestige, or "it would be a pity not to go" unless they create material future consequences.
@@ -56,6 +59,8 @@ Create an "Excluded from analysis" list before the scoring table:
 Briefly explain why each excluded item is not decision-relevant.
 
 ### 3. List Relevant Costs and Benefits
+
+State every consequence comparatively. Pick one option as the reference baseline — the status quo if the user provided it, otherwise the lowest-commitment option — and describe each other option's costs and benefits as differences from that baseline, or compare options directly against one another. Never describe an option in absolute terms as if it had standalone worth; a consequence only earns a place in the table when it differs across the options being compared.
 
 For each option, list only incremental future consequences. For life or personal decisions, use the five default dimensions below and avoid extra dimensions unless the user explicitly asks:
 
@@ -141,7 +146,7 @@ Use a transparent weighted score only after valid saved or user-provided weights
 
 `option score = sum(dimension weight * option impact score)`
 
-Normalize weights to sum to 100. Use the same scoring direction across all dimensions: positive means the option improves that dimension relative to the baseline, negative means it worsens it.
+Normalize weights to sum to 100. Use the same scoring direction across all dimensions: positive means the option improves that dimension relative to the baseline, negative means it worsens it. Anchor the scores to the reference baseline option, which scores 0 on every dimension by definition; each other option's impact score is its difference from that baseline, never an absolute rating of the option in isolation. The recommendation is therefore always a statement about which option is best relative to the others, not which option is "good" on its own.
 
 For financial or business decisions, calculate incremental net benefit first. Use present value when timing materially differs across options. If money is the only material dimension, recommend the higher net-benefit option and show the sensitivity check. Then combine financial results with non-financial dimensions only after converting them into comparable impact scores or treating finance as its own weighted dimension.
 
@@ -159,7 +164,7 @@ Use this structure unless the user asks for another format:
 
 1. Decision frame: one sentence plus options.
 2. Excluded factors: sunk/common/non-changing items and why excluded.
-3. Relevant consequences: dimension-by-dimension cost-benefit analysis for every option across Sustainability, Resources, Capital, Experience, and Alignment.
+3. Relevant consequences: dimension-by-dimension cost-benefit analysis for every option across Sustainability, Resources, Capital, Experience, and Alignment, stated as differences against the named baseline option or directly between options, never as standalone descriptions.
 4. Weights and assumptions: show whether weights were discovered from skill-root `user-values.json` or provided by the user. For ability-building decisions, also show the inferred ability-value assumptions and substitute plan assumptions. If no valid weights are available, ask for weights and stop before scoring.
 5. Scoring table: dimensions, weights, option impact scores, weighted totals. Include this only after valid weights are available.
 6. Recommendation: top option, why it wins, confidence level, and what could change the answer. If weights are missing, provide only a non-weighted lean or a pure financial relevant-cost recommendation, explicitly labeled as such.
@@ -189,6 +194,8 @@ Keep the conclusion candid. If scores are close, say so and explain the tradeoff
 
 Do not do these:
 
+- Do not evaluate or score any option in isolation; every cost, benefit, and score must express a difference relative to a named baseline or the other options, because a single option has no standalone value.
+- Do not analyze or recommend when only one option exists; ask for the alternative it is being compared against first.
 - Do not repackage sunk costs as "experience value" unless they create future consequences that differ by option.
 - Do not double-count the same effect across Resources, Experience, Capital, or Alignment.
 - Do not replace dimension-level cost-benefit analysis with bare scores or one-line labels.

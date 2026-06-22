@@ -1,5 +1,13 @@
 # Method Notes
 
+## Comparison Is the Unit of Analysis
+
+Relevant-cost analysis is inherently comparative. A cost or benefit is not a property of an option; it is a property of the *difference* between options. The same salary, the same workload, the same risk is a benefit when measured against a worse alternative and a cost when measured against a better one — so its sign and size are undefined until a comparison is named. This has three consequences the rest of these notes assume:
+
+- Evaluating a single option in isolation is meaningless. There must be at least two options (one may be the status quo or do-nothing path) before any cost, benefit, or score has content.
+- Always anchor the analysis to an explicit comparison. Either designate one option as the baseline and express every other option as its difference from that baseline, or compare options directly and pairwise. The baseline option scores 0 on every dimension by definition.
+- A consequence that is identical across all options is not relevant, no matter how large, because it makes no difference to the choice. Relevance is created by divergence between options, not by magnitude alone.
+
 ## Relevant-Cost Foundation
 
 Treat a factor as decision-relevant only when it passes all of these tests:
@@ -126,11 +134,11 @@ Ask the user to edit the five dimensions only if they explicitly want a custom f
 
 ## Dimension-Level Cost-Benefit Analysis
 
-For each option, analyze all five dimensions before scoring. Each option-dimension cell should explain:
+For each option, analyze all five dimensions before scoring. Every cell is written comparatively — its benefits and costs are differences from the baseline option or from the other options, not standalone descriptions of how the option looks on its own. Each option-dimension cell should explain:
 
-- Benefits: future gains, avoided harms, preserved options, or upside within that dimension.
-- Costs: future burdens, risks, lost options, opportunity costs, or downside within that dimension.
-- Net assessment: net positive, net negative, mixed, or no material difference.
+- Benefits: future gains, avoided harms, preserved options, or upside within that dimension, relative to the baseline or the alternatives.
+- Costs: future burdens, risks, lost options, opportunity costs, or downside within that dimension, relative to the baseline or the alternatives.
+- Net assessment: net positive, net negative, mixed, or no material difference — always "compared to what," never in the abstract.
 - Key uncertainty: the missing fact most likely to change that dimension's assessment, when one exists.
 
 Do not force false symmetry. If a dimension has benefits but no material costs, or costs but no material benefits, say that directly. If the option does not materially affect a dimension, write "no material difference" and avoid padding.
@@ -155,13 +163,15 @@ Default disk persistence path: `user-values.json` in the skill root directory, t
 
 ## Scoring
 
+The -5 to +5 impact score is a relative score, not an absolute rating. It measures how an option differs from the reference baseline option on that dimension, so it only has meaning inside a comparison. Choose a baseline (the status quo if present, otherwise the lowest-commitment option); that baseline scores 0 on every dimension by construction, and every other option's score is its difference from it. For life decisions this is the same baseline-differencing logic used for financial decisions — apply it to the five dimensions as well, not only to money.
+
 Use a -5 to +5 impact score for each option and dimension:
 
-- -5 = severe future harm
-- -3 = meaningful downside
-- 0 = no meaningful difference
-- +3 = meaningful benefit
-- +5 = exceptional benefit
+- -5 = severe future harm relative to the baseline
+- -3 = meaningful downside relative to the baseline
+- 0 = no meaningful difference from the baseline
+- +3 = meaningful benefit relative to the baseline
+- +5 = exceptional benefit relative to the baseline
 
 Calculate:
 

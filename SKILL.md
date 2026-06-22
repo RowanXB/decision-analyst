@@ -64,13 +64,13 @@ State every consequence comparatively. Pick one option as the reference baseline
 
 For each option, list only incremental future consequences. For life or personal decisions, use the five default dimensions below and avoid extra dimensions unless the user explicitly asks:
 
-| Dimension | Count here | Do not count here |
-|---|---|---|
-| Sustainability | health, sleep, energy, psychological stability, long-term maintainability | happiness |
-| Resources | money, time, network and contacts, space, equipment, cash-flow pressure, non-refundable future commitments | emotional safety from money; internalized skills (those are Capital) |
-| Capital | skills, abilities, degree progress, grades, portfolio, self-growth | daily comfort; money or network you merely hold (those are Resources) |
-| Experience | joy, interest, aversion, housing comfort, social satisfaction, autonomy | health, income, ideals |
-| Alignment | values, meaning, identity, moral consistency, long-term direction | short-term happiness alone |
+| Dimension      | Count here                                                                                                 | Do not count here                                                     |
+| -------------- | ---------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| Sustainability | health, sleep, energy, psychological stability, long-term maintainability                                  | happiness                                                             |
+| Resources      | money, time, network and contacts, space, equipment, cash-flow pressure, non-refundable future commitments | emotional safety from money; internalized skills (those are Capital)  |
+| Capital        | skills, abilities, degree progress, grades, portfolio, self-growth                                         | daily comfort; money or network you merely hold (those are Resources) |
+| Experience     | joy, interest, aversion, housing comfort, social satisfaction, autonomy                                    | health, income, ideals                                                |
+| Alignment      | values, meaning, identity, moral consistency, long-term direction                                          | short-term happiness alone                                            |
 
 For every option-dimension cell, complete the `Benefits / Costs / Net assessment / Key uncertainty` analysis before assigning or inferring an impact score. Compression changes only how much of that analysis is shown to the user. For simple decisions, summarize each completed cell compactly; for high-stakes or ambiguous decisions, show the reasoning in more detail. If a dimension has no material cost or benefit, say so instead of inventing one. Use the net assessment to justify the later -5 to +5 impact score.
 
@@ -174,21 +174,21 @@ Keep the conclusion candid. If scores are close, say so and explain the tradeoff
 
 ## Failure Modes and Fallbacks
 
-| Trigger | First response | If still unresolved |
-|---|---|---|
-| Options are missing or vague | Ask one clarification question to identify the real alternatives | Provide only a decision-frame draft and stop before scoring |
-| User asks for more options | Generate options separately before analysis, then ask which options to score | Analyze only the selected option set |
-| No valid weights are available | Provide an unweighted relevant-consequence comparison and ask for weights or rankings | Stop before weighted totals and recommendation |
-| Saved weights exist but do not sum to 100 | Show the issue and offer a normalized version for confirmation | Use no saved weights until the user confirms or revises them |
-| User refuses weights but wants a recommendation | Explain that only an unweighted tradeoff summary is possible | Give a conditional recommendation based on stated priorities, not weighted totals |
-| One option is dominated without weights | Label the conclusion as a non-weighted lean and explain the domination | Ask for weights only if the user wants a weighted score or the tradeoff is close |
-| Decision is purely monetary | Calculate incremental net benefit and sensitivity before asking for values | Recommend the higher net-benefit option if non-financial tradeoffs are immaterial |
-| Scarcity claim may be FOMO | Ask whether the opportunity has expiry value, irreplaceability, option value, and weak substitutability | Exclude it if scarcity, prestige, or regret is the only evidence, or if a realistic substitute preserves the same value |
-| Options build different abilities | Ask about current level, bottleneck gap, user/customer value, learning efficiency, transferability, concrete plan, substitutes, and evidence | Score Capital through the ability-value lens; do not assume technical, social, analytical, or leadership skills have equal value in context |
-| Impact scores are uncertain | Use ranges, confidence labels, and the value of information | Recommend the missing fact or reversible test that most improves the decision |
-| Top expected-score option has serious downside risk | Separate best expected score from safest option | Ask whether downside protection or upside maximization should dominate |
-| Skill root is not writable | Do not write `user-values.json`; keep weights in the conversation | Ask for a writable path only if the user still wants persistence |
-| Decision has legal, medical, immigration, tax, or regulated financial stakes | Use the framework for structure only and flag need for qualified professional advice | Do not present the result as professional advice |
+| Trigger                                                                      | First response                                                                                                                               | If still unresolved                                                                                                                         |
+| ---------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| Options are missing or vague                                                 | Ask one clarification question to identify the real alternatives                                                                             | Provide only a decision-frame draft and stop before scoring                                                                                 |
+| User asks for more options                                                   | Generate options separately before analysis, then ask which options to score                                                                 | Analyze only the selected option set                                                                                                        |
+| No valid weights are available                                               | Provide an unweighted relevant-consequence comparison and ask for weights or rankings                                                        | Stop before weighted totals and recommendation                                                                                              |
+| Saved weights exist but do not sum to 100                                    | Show the issue and offer a normalized version for confirmation                                                                               | Use no saved weights until the user confirms or revises them                                                                                |
+| User refuses weights but wants a recommendation                              | Explain that only an unweighted tradeoff summary is possible                                                                                 | Give a conditional recommendation based on stated priorities, not weighted totals                                                           |
+| One option is dominated without weights                                      | Label the conclusion as a non-weighted lean and explain the domination                                                                       | Ask for weights only if the user wants a weighted score or the tradeoff is close                                                            |
+| Decision is purely monetary                                                  | Calculate incremental net benefit and sensitivity before asking for values                                                                   | Recommend the higher net-benefit option if non-financial tradeoffs are immaterial                                                           |
+| Scarcity claim may be FOMO                                                   | Ask whether the opportunity has expiry value, irreplaceability, option value, and weak substitutability                                      | Exclude it if scarcity, prestige, or regret is the only evidence, or if a realistic substitute preserves the same value                     |
+| Options build different abilities                                            | Ask about current level, bottleneck gap, user/customer value, learning efficiency, transferability, concrete plan, substitutes, and evidence | Score Capital through the ability-value lens; do not assume technical, social, analytical, or leadership skills have equal value in context |
+| Impact scores are uncertain                                                  | Use ranges, confidence labels, and the value of information                                                                                  | Recommend the missing fact or reversible test that most improves the decision                                                               |
+| Top expected-score option has serious downside risk                          | Separate best expected score from safest option                                                                                              | Ask whether downside protection or upside maximization should dominate                                                                      |
+| Skill root is not writable                                                   | Do not write `user-values.json`; keep weights in the conversation                                                                            | Ask for a writable path only if the user still wants persistence                                                                            |
+| Decision has legal, medical, immigration, tax, or regulated financial stakes | Use the framework for structure only and flag need for qualified professional advice                                                         | Do not present the result as professional advice                                                                                            |
 
 ## Anti-Patterns
 

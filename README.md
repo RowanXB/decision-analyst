@@ -90,13 +90,13 @@ Decision Analyst 的核心规则只有一句：
 
 生活和职业决策默认使用五个维度。它们分开评分，避免把同一个影响重复计算。
 
-| 维度               | 看什么                                       | 不看什么         |
-| ------------------ | -------------------------------------------- | ---------------- |
-| **Sustainability** | 健康、睡眠、精力、心理稳定性、长期能否撑住   | 快乐感           |
-| **Resources**      | 钱、时间、人脉、空间、现金流压力、不可退未来承诺 | 有钱带来的安全感；已内化的能力（算 Capital） |
-| **Capital**        | 技能、能力、学业进度、作品集、自我成长 | 当下舒服不舒服；手里的钱和人脉（算 Resources） |
-| **Experience**     | 兴趣、厌恶、居住体验、社交满足、日常幸福感   | 健康和收入本身   |
-| **Alignment**      | 价值观、意义感、身份一致性、想成为什么样的人 | 纯粹的短期开心   |
+| 维度               | 看什么                                           | 不看什么                                       |
+| ------------------ | ------------------------------------------------ | ---------------------------------------------- |
+| **Sustainability** | 健康、睡眠、精力、心理稳定性、长期能否撑住       | 快乐感                                         |
+| **Resources**      | 钱、时间、人脉、空间、现金流压力、不可退未来承诺 | 有钱带来的安全感；已内化的能力（算 Capital）   |
+| **Capital**        | 技能、能力、学业进度、作品集、自我成长           | 当下舒服不舒服；手里的钱和人脉（算 Resources） |
+| **Experience**     | 兴趣、厌恶、居住体验、社交满足、日常幸福感       | 健康和收入本身                                 |
+| **Alignment**      | 价值观、意义感、身份一致性、想成为什么样的人     | 纯粹的短期开心                                 |
 
 > **Resources 还是 Capital？** 一句话区分：**外界能拿走的算 Resources，长在你身上、带得走的算 Capital。** 钱、时间、人脉是你调动的外部资源（Resources）；技能、能力、作品集、自我成长是内化进你自己、外界拿不走的长期资本（Capital）。
 
@@ -184,12 +184,12 @@ decision-analyst/
 
 这个 skill 已用 Darwin 风格流程做过评估和优化。当前版本的本地校验状态：
 
-| 项目 | 状态 |
-| ---- | ---- |
-| Skill 格式校验 | pass |
-| Runtime 红灯扫描 | pass |
-| 测试 prompts | 6 个 |
-| 最近评估模式 | full_test |
+| 项目             | 状态      |
+| ---------------- | --------- |
+| Skill 格式校验   | pass      |
+| Runtime 红灯扫描 | pass      |
+| 测试 prompts     | 6 个      |
+| 最近评估模式     | full_test |
 
 测试覆盖六类常见决策：
 
@@ -204,19 +204,19 @@ decision-analyst/
 
 ## 许可证
 
-   Copyright 2026 Chengyan Tong
+Copyright 2026 Chengyan Tong
 
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-   
-   <http://www.apache.org/licenses/LICENSE-2.0>
-       
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+<http://www.apache.org/licenses/LICENSE-2.0>
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 
 ---
 

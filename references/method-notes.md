@@ -2,7 +2,7 @@
 
 ## Comparison Is the Unit of Analysis
 
-Relevant-cost analysis is inherently comparative. A cost or benefit is not a property of an option; it is a property of the *difference* between options. The same salary, the same workload, the same risk is a benefit when measured against a worse alternative and a cost when measured against a better one — so its sign and size are undefined until a comparison is named. This has three consequences the rest of these notes assume:
+Relevant-cost analysis is inherently comparative. A cost or benefit is not a property of an option; it is a property of the _difference_ between options. The same salary, the same workload, the same risk is a benefit when measured against a worse alternative and a cost when measured against a better one — so its sign and size are undefined until a comparison is named. This has three consequences the rest of these notes assume:
 
 - Evaluating a single option in isolation is meaningless. There must be at least two options (one may be the status quo or do-nothing path) before any cost, benefit, or score has content.
 - Always anchor the analysis to an explicit comparison. Either designate one option as the baseline and express every other option as its difference from that baseline, or compare options directly and pairwise. The baseline option scores 0 on every dimension by definition.

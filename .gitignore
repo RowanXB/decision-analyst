@@ -1,1 +1,5 @@
 /user-values.json
+dist/
+.tmp/
+*.zip
+.DS_Store

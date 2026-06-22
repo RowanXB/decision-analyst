@@ -133,18 +133,11 @@ git clone https://github.com/RowanXB/decision-analyst <agent-skills-dir>/decisio
 
 不想走命令行、想直接在 Claude（claude.ai）的 Cowork 或对话里用时，用这个方式。
 
-1. 从 GitHub Releases 下载打包好的 skill zip：
+1. 从 GitHub Releases 下载打包好的 `.zip` 文件：
    - 发布页：<https://github.com/RowanXB/decision-analyst/releases/latest>
-   - 直链下载：
 
-     ```text
-     https://github.com/RowanXB/decision-analyst/releases/download/v0.1.0/decision-analyst-v0.1.0.zip
-     ```
-
-2. 在 Claude 的 Skills / 能力（Capabilities）管理界面，选择「上传 / 导入 skill」，传入这个 zip。
+2. 在 Claude 的 Skills 管理界面，选择「上传 / 导入 skill」，传入这个 zip。
 3. zip 内是标准 skill 包：顶层 `decision-analyst/` 目录，含 `SKILL.md`、`references/`、`agents/` 等运行所需文件（已剔除仓库开发文件）。导入并启用后，用 `$decision-analyst` 或中文「用 decision-analyst 帮我…」触发。
-
-即使 runtime 不支持自动加载 skills，也可以直接把 `SKILL.md` 的内容作为参考资料粘贴进对话。
 
 ---
 

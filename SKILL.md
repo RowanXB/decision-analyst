@@ -164,7 +164,7 @@ Use this structure unless the user asks for another format:
 
 1. Decision frame: one sentence plus options.
 2. Excluded factors: sunk/common/non-changing items and why excluded.
-3. Relevant consequences: dimension-by-dimension cost-benefit analysis for every option across Sustainability, Resources, Capital, Experience, and Alignment, stated as differences against the named baseline option or directly between options, never as standalone descriptions.
+3. Relevant consequences: dimension-by-dimension cost-benefit analysis for every option across Sustainability, Resources, Capital, Experience, and Alignment, stated as differences against the named baseline option or directly between options, never as standalone descriptions. For ability-building decisions, the Capital analysis must explicitly name the user's binding bottleneck ability, give each option's best-realistic-substitute verdict, and rank the options by user-facing ability value rather than skill quantity or prestige, so the ability-capital reasoning is visible rather than implied.
 4. Weights and assumptions: show whether weights were discovered from skill-root `user-values.json` or provided by the user. For ability-building decisions, also show the inferred ability-value assumptions and substitute plan assumptions. If no valid weights are available, ask for weights and stop before scoring.
 5. Scoring table: dimensions, weights, option impact scores, weighted totals. Include this only after valid weights are available.
 6. Recommendation: top option, why it wins, confidence level, and what could change the answer. If weights are missing, provide only a non-weighted lean or a pure financial relevant-cost recommendation, explicitly labeled as such.

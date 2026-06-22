@@ -1,4 +1,4 @@
-# Decision Analyst.skill
+# 决策.skill
 
 > _「像CFO一样进行决策」_
 

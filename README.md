@@ -188,16 +188,17 @@ decision-analyst/
 | ---- | ---- |
 | Skill 格式校验 | pass |
 | Runtime 红灯扫描 | pass |
-| 测试 prompts | 5 个 |
-| 最近评估模式 | dry_run |
+| 测试 prompts | 6 个 |
+| 最近评估模式 | full_test |
 
-测试覆盖五类常见决策：
+测试覆盖六类常见决策：
 
 1. 学位沉没成本与健康取舍
 2. 旧机器维修 vs 替换
 3. 高薪高压高成长 offer vs 低薪低成长但自由 offer
 4. 稀缺机会与 FOMO 区分
 5. 创业续做 vs 稳定工作 offer
+6. 能力资本投资路径对比（线下项目 vs 自学建项目）
 
 ---
 

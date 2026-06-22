@@ -92,21 +92,23 @@ Do not evaluate happiness here. This dimension only evaluates whether the body a
 
 ### 2. Resources
 
-Measure the choice's effect on practical resources.
+Measure the choice's effect on the external resources the user controls and can deploy.
 
-Include money, time, space, equipment, living costs, cash-flow pressure, and non-refundable future commitments.
+Include money (the primary one), time, network and social connections, space, equipment, living costs, cash-flow pressure, and non-refundable future commitments. These are external assets the user commands: they rise and fall with circumstances, and outside events can take them away.
 
-Core question: will this choice consume or increase the user's real-world resources?
+Core question: will this choice consume or increase the real-world resources the user can command?
 
-Do not evaluate the emotional safety produced by money here. Only score the resource increase or decrease itself.
+Resources are leverage the user holds, not capability baked into the user. Do not score internalized skills or abilities here — those are Capital. Do not evaluate the emotional safety produced by money here either; only score the resource increase or decrease itself.
 
 ### 3. Capital
 
-Measure whether the choice accumulates durable future capital.
+Measure whether the choice accumulates durable capital internalized into the user — strength that external change cannot simply take away.
 
-Include skills, degree progress, grades, research experience, portfolio, network, reputation, career credibility, entrepreneurial experience, and ability-capital that creates value for users, customers, collaborators, or future stakeholders.
+Include skills and abilities, degree progress, grades, research experience, portfolio, self-growth, entrepreneurial experience, and ability-capital that creates value for users, customers, collaborators, or future stakeholders.
 
-Core question: will this choice make the user stronger and more competitive in the future?
+Core question: will this choice make the user intrinsically stronger and more competitive in the future, in a way they carry with them across contexts?
+
+The line against Resources: Resources are external assets the user merely holds and can lose (money, time, network); Capital is capability and earned standing the user has internalized and carries with them. Network and contacts are Resources, not Capital, because they live in other people and can vanish with circumstances — what Capital scores is the user's own internalized ability and capability, not how others currently perceive them.
 
 Use this dimension to merge ability compounding, academic capital, and career capital. Do not split them into separate dimensions unless the user explicitly asks.
 

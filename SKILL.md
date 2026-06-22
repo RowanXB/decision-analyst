@@ -67,8 +67,8 @@ For each option, list only incremental future consequences. For life or personal
 | Dimension | Count here | Do not count here |
 |---|---|---|
 | Sustainability | health, sleep, energy, psychological stability, long-term maintainability | happiness |
-| Resources | money, time, space, equipment, cash-flow pressure, non-refundable future commitments | emotional safety from money |
-| Capital | skills, degree progress, grades, portfolio, network, reputation, career credibility | daily comfort |
+| Resources | money, time, network and contacts, space, equipment, cash-flow pressure, non-refundable future commitments | emotional safety from money; internalized skills (those are Capital) |
+| Capital | skills, abilities, degree progress, grades, portfolio, self-growth | daily comfort; money or network you merely hold (those are Resources) |
 | Experience | joy, interest, aversion, housing comfort, social satisfaction, autonomy | health, income, ideals |
 | Alignment | values, meaning, identity, moral consistency, long-term direction | short-term happiness alone |
 

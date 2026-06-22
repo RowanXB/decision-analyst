@@ -9,7 +9,7 @@ Treat a factor as decision-relevant only when it passes all of these tests:
 - Causal: the user's choice can plausibly affect whether, when, or how much it occurs.
 - Material: the consequence is large enough to affect the conclusion or the user's peace of mind.
 
-Relevant items commonly include avoidable costs, incremental revenue, incremental time, opportunity costs, resale value, option value, and risk exposure. Irrelevant items commonly include sunk costs, committed costs that cannot be changed, non-cash accounting allocations, and future costs that occur under every option.
+Relevant items commonly include avoidable costs, incremental revenue, incremental time, opportunity costs, scarce future opportunities, resale value, option value, and risk exposure. Irrelevant items commonly include sunk costs, committed costs that cannot be changed, non-cash accounting allocations, future costs that occur under every option, and scarcity cues without material future impact.
 
 ## Sunk-Cost Handling
 
@@ -27,6 +27,16 @@ Do not dismiss emotions mechanically. Past effort can create future-relevant con
 ## Opportunity Cost
 
 Include the value of the best forgone alternative when choosing one option consumes time, capital, attention, or social capacity that could be used elsewhere. In life decisions, opportunity cost often appears as lost recovery, lost family time, delayed learning, or reduced optionality.
+
+When opportunity cost depends on scarcity, check three sources of value:
+
+- Expiry value: the opportunity has a clear expiration time, application deadline, one-time window, or sequencing constraint.
+- Irreplaceability: after missing it, the user cannot easily find an alternative of similar quality, access, timing, or fit.
+- Option value: the opportunity opens future choices, relationships, credentials, information, or paths that would otherwise be unavailable.
+
+Count the scarce opportunity only when at least one source is material, future-facing, causal, and different between options. Map the effect into existing dimensions, usually Capital, Resources, Alignment, or Experience. Do not create a separate scarcity score unless the user explicitly asks to customize the framework.
+
+Do not count FOMO as opportunity cost. "Limited seats," "looks elite," "people say it is rare," or "it feels wasteful not to go" are not relevant unless they point to a real future consequence.
 
 ## Default Life-Decision Dimensions
 
@@ -84,6 +94,21 @@ Put ideals and meaning here. Do not mix them into happiness, credentials, or inc
 
 Ask the user to edit the five dimensions only if they explicitly want a custom framework. Otherwise, use these five as the default scoring table.
 
+## Dimension-Level Cost-Benefit Analysis
+
+For each option, analyze all five dimensions before scoring. Each option-dimension cell should explain:
+
+- Benefits: future gains, avoided harms, preserved options, or upside within that dimension.
+- Costs: future burdens, risks, lost options, opportunity costs, or downside within that dimension.
+- Net assessment: net positive, net negative, mixed, or no material difference.
+- Key uncertainty: the missing fact most likely to change that dimension's assessment, when one exists.
+
+Do not force false symmetry. If a dimension has benefits but no material costs, or costs but no material benefits, say that directly. If the option does not materially affect a dimension, write "no material difference" and avoid padding.
+
+Compression applies only to presentation, not to the analytical process. For simple low-stakes decisions, one compact line per option-dimension cell is enough in the final answer, but the agent must still evaluate every option-dimension cell, exclusions, scarcity checks, uncertainty, and weight rules. Expand the visible reasoning when stakes, uncertainty, or emotional load justify it.
+
+Use this dimension-level cost-benefit analysis to justify the -5 to +5 impact score. The score should compress the analysis, not replace it.
+
 ## Weight Elicitation
 
 Prefer simple elicitation over complex pairwise methods unless the user asks for rigor.
@@ -134,6 +159,7 @@ Before concluding, check:
 - Would the recommendation change if the top two weights moved by 10-20 points?
 - Would the recommendation change under pessimistic, base, and optimistic scenarios?
 - Is the top option irreversible or does it preserve future options?
+- Does a claimed scarce opportunity have expiry value, irreplaceability, or option value, or is it only FOMO?
 - Is the top option best by expected value but unacceptable by downside risk?
 
 When uncertainty is high, recommend an information-gathering step, pilot, reversible trial, or decision checkpoint if available.

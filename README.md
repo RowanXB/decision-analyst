@@ -112,16 +112,13 @@ npx skills add RowanXB/decision-analyst
 
 ### 方式三：手动安装
 
-| Runtime     | 安装路径                             |
-| ----------- | ------------------------------------ |
-| Claude Code | `~/.claude/skills/decision-analyst/` |
-| Codex CLI   | `~/.agents/skills/decision-analyst/` |
-| Cursor      | `~/.cursor/skills/decision-analyst/` |
-| Hermes      | `~/.hermes/skills/decision-analyst/` |
+把仓库克隆到当前 runtime 配置的 skills 目录中，并确保目标文件夹名为 `decision-analyst`：
 
 ```bash
-git clone https://github.com/RowanXB/decision-analyst <上面对应的路径>
+git clone https://github.com/RowanXB/decision-analyst <agent-skills-dir>/decision-analyst
 ```
+
+不同 runtime 的 skills 目录位置可能不同；以你当前 agent 或 runtime 的文档、配置页面、环境变量为准。
 
 即使 runtime 不支持自动加载 skills，也可以直接把 `SKILL.md` 的内容作为参考资料粘贴进对话。
 
@@ -154,7 +151,7 @@ decision-analyst/
 ├── SKILL.md                      # skill 主体
 ├── test-prompts.json             # Darwin 评估用测试 prompts
 ├── references/
-│   └── method-notes.md           # 相关成本、沉没成本、权重评分方法说明
+│   └── method-notes.md           # 完整细节文档：相关成本、沉没成本、五维边界、权重评分方法
 ├── agents/
 │   └── openai.yaml               # agent UI metadata
 ├── LICENSE
@@ -165,19 +162,22 @@ decision-analyst/
 
 ## 质量验证
 
-这个 skill 已用 Darwin 风格流程做过一轮评估和优化：
+这个 skill 已用 Darwin 风格流程做过评估和优化。当前版本的本地校验状态：
 
-| 阶段   |       分数 | 模式    |
-| ------ | ---------: | ------- |
-| 基线   | 83.8 / 100 | dry_run |
-| 优化后 | 89.2 / 100 | dry_run |
-| 提升   |       +5.4 | keep    |
+| 项目 | 状态 |
+| ---- | ---- |
+| Skill 格式校验 | pass |
+| Runtime 红灯扫描 | pass |
+| 测试 prompts | 5 个 |
+| 最近评估模式 | dry_run |
 
-测试覆盖三类常见决策：
+测试覆盖五类常见决策：
 
 1. 学位沉没成本与健康取舍
 2. 旧机器维修 vs 替换
 3. 高薪高压高成长 offer vs 低薪低成长但自由 offer
+4. 稀缺机会与 FOMO 区分
+5. 创业续做 vs 稳定工作 offer
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: decision-analyst
-description: Use this skill for decision analysis using relevant-cost thinking, sunk-cost exclusion, opportunity cost, incremental benefits, and weighted scoring across Sustainability, Resources, Capital, Experience, and Alignment. Explicitly trigger when the user mentions $decision-analyst, decision-analyst, 决策分析 skill, or asks to use this skill. Also implicitly trigger when the user asks for help choosing, comparing options, deciding whether to continue or quit, evaluating tradeoffs, ignoring sunk costs, clarifying relevant costs, or making a values-based life or business decision in Chinese or English.
+description: Use this skill for decision analysis using relevant-cost thinking, sunk-cost exclusion, scarcity-aware opportunity cost, dimension-by-dimension cost-benefit analysis, incremental benefits, and weighted scoring across Sustainability, Resources, Capital, Experience, and Alignment. Explicitly trigger when the user mentions $decision-analyst, decision-analyst, 决策分析 skill, or asks to use this skill. Also implicitly trigger when the user asks for help choosing, comparing options, deciding whether to continue or quit, evaluating tradeoffs, ignoring sunk costs, clarifying opportunity costs, distinguishing real option value from FOMO, or making a values-based life or business decision in Chinese or English.
 ---
 
 # Decision Analyst
@@ -9,7 +9,7 @@ description: Use this skill for decision analysis using relevant-cost thinking, 
 
 Use relevant-cost analysis to clarify the user's stated alternatives, ignore sunk and non-changing factors, identify future consequences that differ by option, elicit the user's values, and produce a transparent weighted recommendation.
 
-For life or personal decisions, default to five dimensions: Sustainability, Resources, Capital, Experience, and Alignment. For method details, edge cases, and source-backed definitions, read `references/method-notes.md` when the decision has meaningful financial stakes, uncertainty, or ambiguous sunk-cost claims.
+For life or personal decisions, default to five dimensions: Sustainability, Resources, Capital, Experience, and Alignment. The complete details document is `references/method-notes.md`; read it in full before applying the five-dimension framework, scarcity tests, score inference, or compressed output rules.
 
 ## Core Rule
 
@@ -22,6 +22,8 @@ Use these operating lenses throughout the analysis:
 - From-here-forward: the decision starts now. Past spending, effort, history, and identity commitments matter only when they create future consequences that differ by option.
 - Difference-making only: include a factor only when at least one option changes it and the change is material enough to affect the recommendation or the user's peace of mind.
 - Opportunity cost: choosing one option consumes time, capital, attention, or social capacity that could have gone to the best forgone alternative.
+- Scarcity-aware opportunity cost: count a forgone opportunity only when choosing another option loses a future opportunity that is hard to replace, time-limited, or expands future options. Do not count mere "limited seats," prestige, or "it would be a pity not to go" unless they create material future consequences.
+- Full analysis, compressed presentation: simple decisions may receive a compact answer, but the analysis process must still cover exclusions, every option-dimension cost-benefit cell, scarcity checks, uncertainty, and weight rules.
 - Expected value versus survivability: separate the option with the best expected score from the option with the safest downside when risk could harm health, finances, relationships, or irreversible life direction.
 - Values are weights, not vibes: values must affect the analysis through explicit weights, rankings, or stated priorities, not vague language that hides the tradeoff.
 
@@ -47,18 +49,25 @@ Create an "Excluded from analysis" list before the scoring table:
 - Common costs or benefits: future items that occur under every option.
 - Accounting allocations: depreciation, book value, allocated overhead, or labels that do not change future cash flow or lived outcome.
 - Guilt, waste, or "I already came this far" unless the future feeling, relationship effect, or reputational consequence differs by option.
+- FOMO signals: "limited seats," "looks premium," "everyone says it is rare," or "not going feels wasteful" when there is no concrete future impact.
 
 Briefly explain why each excluded item is not decision-relevant.
 
 ### 3. List Relevant Costs and Benefits
 
-For each option, list only incremental future consequences. For life or personal decisions, use these five default dimensions and avoid creating extra dimensions unless the user explicitly asks:
+For each option, list only incremental future consequences. For life or personal decisions, use the five default dimensions below and avoid extra dimensions unless the user explicitly asks:
 
-- Sustainability: whether the choice can be maintained long term. Include health, sleep, energy, psychological stability, stress level, and whether the life rhythm is sustainable. Core question: will this choice make the user more stable or more likely to break down? Do not score happiness here.
-- Resources: the choice's effect on real-world resources. Include money, time, space, equipment, living costs, cash-flow pressure, and non-refundable future commitments. Core question: will this choice consume or increase practical resources? Do not score the feeling of financial safety here.
-- Capital: whether the choice accumulates durable future capital. Include skills, degree progress, grades, research experience, portfolio, network, reputation, career credibility, and entrepreneurial experience. Core question: will this choice make the user stronger and more competitive in the future?
-- Experience: the choice's effect on day-to-day subjective life. Include joy, interest, aversion, housing comfort, social satisfaction, autonomy, and everyday happiness. Core question: will daily life actually feel better or worse?
-- Alignment: whether the choice matches long-term values and life direction. Include ideals, meaning, social impact, educational fairness, identity, moral consistency, and becoming the kind of person the user wants to become. Core question: does this choice move the user closer to the path they truly want?
+| Dimension | Count here | Do not count here |
+|---|---|---|
+| Sustainability | health, sleep, energy, psychological stability, long-term maintainability | happiness |
+| Resources | money, time, space, equipment, cash-flow pressure, non-refundable future commitments | emotional safety from money |
+| Capital | skills, degree progress, grades, portfolio, network, reputation, career credibility | daily comfort |
+| Experience | joy, interest, aversion, housing comfort, social satisfaction, autonomy | health, income, ideals |
+| Alignment | values, meaning, identity, moral consistency, long-term direction | short-term happiness alone |
+
+For every option-dimension cell, complete the `Benefits / Costs / Net assessment / Key uncertainty` analysis before assigning or inferring an impact score. Compression changes only how much of that analysis is shown to the user. For simple decisions, summarize each completed cell compactly; for high-stakes or ambiguous decisions, show the reasoning in more detail. If a dimension has no material cost or benefit, say so instead of inventing one. Use the net assessment to justify the later -5 to +5 impact score.
+
+For scarce opportunity claims, apply the `expiry value / irreplaceability / option value` test. Include scarcity only when it creates a material, causal future consequence; map it into the existing dimensions. If scarcity is only limited seats, prestige, social proof, or anticipated regret, label it as FOMO and exclude it.
 
 For business or monetary-only decisions, calculate incremental financial consequences before asking for values or mapping non-financial effects into the five dimensions. Use this template:
 
@@ -80,6 +89,7 @@ Ask concise questions whenever the answer affects the recommendation:
 - If `user-values.json` exists but is invalid, state that saved weights were found but cannot be used, briefly name the issue, and ask the user to revise or normalize them.
 - Ask the user to rate each option's impact on each dimension, preferably on a -5 to +5 scale where 0 means no meaningful difference from the baseline.
 - Ask for probabilities or scenario ranges when outcomes are uncertain.
+- Ask expiry, irreplaceability, and option-value questions when a claimed opportunity cost depends on scarcity.
 - Ask for missing facts that could change the top-ranked option.
 
 If no valid saved or user-provided weights are available, stop before weighted scoring and ask for weights. You may provide an unweighted comparison of relevant consequences and a clearly labeled non-weighted lean when one option is dominated, risk-protective, or materially stronger on the user's stated priorities. Do not produce weighted totals, a weighted winner, or a weighted recommendation until the user provides weights.
@@ -135,6 +145,7 @@ Run at least one sensitivity check:
 - Identify the assumption or weight that would need to change to reverse the recommendation.
 - Flag dominated options: an option is dominated when another option is at least as good on every relevant dimension and better on at least one.
 - Separate "best expected score" from "safest option" when downside risk matters.
+- Test whether any scarcity-based opportunity cost survives the expiry, irreplaceability, and option-value checks; remove it if it is only FOMO.
 
 ### 7. Output Format
 
@@ -142,7 +153,7 @@ Use this structure unless the user asks for another format:
 
 1. Decision frame: one sentence plus options.
 2. Excluded factors: sunk/common/non-changing items and why excluded.
-3. Relevant consequences: concise table by option.
+3. Relevant consequences: dimension-by-dimension cost-benefit analysis for every option across Sustainability, Resources, Capital, Experience, and Alignment.
 4. Weights and assumptions: show whether weights were discovered from skill-root `user-values.json` or provided by the user. If no valid weights are available, ask for weights and stop before scoring.
 5. Scoring table: dimensions, weights, option impact scores, weighted totals. Include this only after valid weights are available.
 6. Recommendation: top option, why it wins, confidence level, and what could change the answer. If weights are missing, provide only a non-weighted lean or a pure financial relevant-cost recommendation, explicitly labeled as such.
@@ -161,6 +172,7 @@ Keep the conclusion candid. If scores are close, say so and explain the tradeoff
 | User refuses weights but wants a recommendation | Explain that only an unweighted tradeoff summary is possible | Give a conditional recommendation based on stated priorities, not weighted totals |
 | One option is dominated without weights | Label the conclusion as a non-weighted lean and explain the domination | Ask for weights only if the user wants a weighted score or the tradeoff is close |
 | Decision is purely monetary | Calculate incremental net benefit and sensitivity before asking for values | Recommend the higher net-benefit option if non-financial tradeoffs are immaterial |
+| Scarcity claim may be FOMO | Ask whether the opportunity has expiry value, irreplaceability, or option value | Exclude it if scarcity, prestige, or regret is the only evidence |
 | Impact scores are uncertain | Use ranges, confidence labels, and the value of information | Recommend the missing fact or reversible test that most improves the decision |
 | Top expected-score option has serious downside risk | Separate best expected score from safest option | Ask whether downside protection or upside maximization should dominate |
 | Skill root is not writable | Do not write `user-values.json`; keep weights in the conversation | Ask for a writable path only if the user still wants persistence |
@@ -172,6 +184,9 @@ Do not do these:
 
 - Do not repackage sunk costs as "experience value" unless they create future consequences that differ by option.
 - Do not double-count the same effect across Resources, Experience, Capital, or Alignment.
+- Do not replace dimension-level cost-benefit analysis with bare scores or one-line labels.
+- Do not count scarcity as opportunity cost merely because an option has limited seats, elite branding, social proof, or anticipated regret.
+- Do not count an allegedly rare opportunity unless its expiry value, irreplaceability, or option value changes the user's future options or outcomes.
 - Do not output weighted totals, a weighted winner, or a weighted recommendation without valid weights.
 - Do not withhold a clearly labeled non-weighted lean when one option is dominated, risk-protective, or strongly aligned with priorities the user has already stated.
 - Do not ask for five-dimension weights before giving the relevant-cost answer to a purely monetary decision with no material non-financial tradeoff.

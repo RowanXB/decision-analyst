@@ -12,6 +12,16 @@
   {
     "id": 3,
     "prompt": "Use $decision-analyst. I have two job offers: A pays much more, has brutal hours, and offers steep growth; B pays less, has low growth, but gives me much more freedom. Help me decide.",
-    "expected": "Use the five dimensions, infer initial impact scores with confidence labels, separate A's Resources and Capital upside from its Sustainability and Experience costs, separate B's freedom from its lower Capital trajectory, ask only for the decisive weights or uncertain scores, distinguish best expected score from safest option, and stop before weighted totals if weights are missing."
+    "expected": "Use the five dimensions and provide a cost-benefit analysis for each option within each dimension before scoring. Infer initial impact scores with confidence labels, separate A's Resources and Capital upside from its Sustainability and Experience costs, separate B's freedom from its lower Capital trajectory, ask only for the decisive weights or uncertain scores, distinguish best expected score from safest option, and stop before weighted totals if weights are missing."
+  },
+  {
+    "id": 4,
+    "prompt": "Use $decision-analyst. This weekend I can either work on my portfolio or attend a limited-seat elite networking dinner that feels too good to miss, but I do not know who will be there or what it leads to. Help me decide.",
+    "expected": "Check scarcity-aware opportunity cost by asking whether the dinner has expiry value, irreplaceability, or concrete option value. Exclude limited seats, prestige, social proof, or anticipated regret as FOMO if there is no material future consequence. Map any real network or career upside into Capital rather than creating a new scarcity dimension, and stop before weighted scoring if weights are missing."
+  },
+  {
+    "id": 5,
+    "prompt": "Use $decision-analyst. Should I keep building my startup for another year or take a stable job offer? The startup is exciting but draining and uncertain; the job pays well but may slow my founder learning.",
+    "expected": "Frame the two options and analyze Sustainability, Resources, Capital, Experience, and Alignment separately. For each dimension and each option, complete benefits, costs, net assessment, and key uncertainty analysis before any impact score. Compact output may summarize the completed cells, but must not reduce the analysis process or collapse the five-dimensional analysis into bare scores. Stop before weighted totals if weights are missing."
   }
 ]

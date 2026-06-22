@@ -11,7 +11,7 @@
   },
   {
     "id": 3,
-    "prompt": "Use $decision-analyst. I have two job offers: A pays much more but has brutal hours; B pays less but has better learning and a calmer life. Help me decide.",
-    "expected": "Use the five dimensions, infer initial impact scores with confidence labels, ask only for the decisive weights or uncertain scores, distinguish best expected score from safest option, and stop before weighted totals if weights are missing."
+    "prompt": "Use $decision-analyst. I have two job offers: A pays much more, has brutal hours, and offers steep growth; B pays less, has low growth, but gives me much more freedom. Help me decide.",
+    "expected": "Use the five dimensions, infer initial impact scores with confidence labels, separate A's Resources and Capital upside from its Sustainability and Experience costs, separate B's freedom from its lower Capital trajectory, ask only for the decisive weights or uncertain scores, distinguish best expected score from safest option, and stop before weighted totals if weights are missing."
   }
 ]

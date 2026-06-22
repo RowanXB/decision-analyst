@@ -1,6 +1,6 @@
 # Decision Analyst.skill
 
-> *「像CFO一样进行决策」*
+> _「像CFO一样进行决策」_
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-yellow.svg)](LICENSE)
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-Standard-green)](https://agentskills.io)
@@ -80,13 +80,13 @@ Decision Analyst 的核心规则只有一句：
 
 生活和职业决策默认使用五个维度。它们分开评分，避免把同一个影响重复计算。
 
-| 维度 | 看什么 | 不看什么 |
-|---|---|---|
-| **Sustainability** | 健康、睡眠、精力、心理稳定性、长期能否撑住 | 快乐感 |
-| **Resources** | 钱、时间、空间、现金流压力、不可退未来承诺 | 有钱带来的安全感 |
-| **Capital** | 技能、学历进度、成绩、作品集、网络、职业信誉 | 当下舒服不舒服 |
-| **Experience** | 兴趣、厌恶、居住体验、社交满足、日常幸福感 | 健康和收入本身 |
-| **Alignment** | 价值观、意义感、身份一致性、想成为什么样的人 | 纯粹的短期开心 |
+| 维度               | 看什么                                       | 不看什么         |
+| ------------------ | -------------------------------------------- | ---------------- |
+| **Sustainability** | 健康、睡眠、精力、心理稳定性、长期能否撑住   | 快乐感           |
+| **Resources**      | 钱、时间、空间、现金流压力、不可退未来承诺   | 有钱带来的安全感 |
+| **Capital**        | 技能、学历进度、成绩、作品集、网络、职业信誉 | 当下舒服不舒服   |
+| **Experience**     | 兴趣、厌恶、居住体验、社交满足、日常幸福感   | 健康和收入本身   |
+| **Alignment**      | 价值观、意义感、身份一致性、想成为什么样的人 | 纯粹的短期开心   |
 
 没有权重时，它不会伪造加权总分。它可以给出明确标注的非加权倾向，但只有在你提供权重后，才会输出加权评分和加权推荐。
 
@@ -96,13 +96,7 @@ Decision Analyst 的核心规则只有一句：
 
 Decision Analyst 基于开放的 Agent Skills 形态，可在任何 skills-compatible 的 AI agent runtime 中使用。
 
-### 方式一：一行命令
-
-```bash
-npx skills add RowanXB/decision-analyst
-```
-
-### 方式二：让当前 agent 安装
+### 方式一：让当前 agent 安装
 
 把这句话发给你正在用的 agent：
 
@@ -110,15 +104,20 @@ npx skills add RowanXB/decision-analyst
 帮我安装这个 skill：https://github.com/RowanXB/decision-analyst
 ```
 
+### 方式二：一行命令
+
+```bash
+npx skills add RowanXB/decision-analyst
+```
+
 ### 方式三：手动安装
 
-| Runtime | 安装路径 |
-|---|---|
+| Runtime     | 安装路径                             |
+| ----------- | ------------------------------------ |
 | Claude Code | `~/.claude/skills/decision-analyst/` |
-| Codex CLI | `~/.codex/skills/decision-analyst/` |
-| Cursor | `~/.cursor/skills/decision-analyst/` |
-| OpenClaw | `~/.openclaw/workspace/skills/decision-analyst/` |
-| 其他 runtime | clone 到对应 runtime 的 `skills/` 目录 |
+| Codex CLI   | `~/.agents/skills/decision-analyst/` |
+| Cursor      | `~/.cursor/skills/decision-analyst/` |
+| Hermes      | `~/.hermes/skills/decision-analyst/` |
 
 ```bash
 git clone https://github.com/RowanXB/decision-analyst <上面对应的路径>
@@ -168,17 +167,17 @@ decision-analyst/
 
 这个 skill 已用 Darwin 风格流程做过一轮评估和优化：
 
-| 阶段 | 分数 | 模式 |
-|---|---:|---|
-| 基线 | 83.8 / 100 | dry_run |
+| 阶段   |       分数 | 模式    |
+| ------ | ---------: | ------- |
+| 基线   | 83.8 / 100 | dry_run |
 | 优化后 | 89.2 / 100 | dry_run |
-| 提升 | +5.4 | keep |
+| 提升   |       +5.4 | keep    |
 
 测试覆盖三类常见决策：
 
 1. 学位沉没成本与健康取舍
 2. 旧机器维修 vs 替换
-3. 高薪高压 offer vs 低薪高成长 offer
+3. 高薪高压高成长 offer vs 低薪低成长但自由 offer
 
 ---
 

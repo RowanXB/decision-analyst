@@ -59,7 +59,14 @@ Decision Analyst 的核心规则只有一句：
 
 > 只分析未来会因为选择不同而改变的后果。
 
-而这条规则的前提是：**一切评估都是相对的。** 成本和收益不是某个方案自身的属性，而是方案之间差异的属性——同样的薪水、同样的强度，对比更差的选项是收益，对比更好的选项就是成本。所以单独评价一个方案没有意义，至少要有两个选项（其中之一可以是「维持现状」），并且每个方案的成本、收益、评分都锚定在一个基准方案或其他方案上来表达，而不是凭空给一个绝对分数。
+而这条规则的前提是：**一切评估都是相对的。** 成本和收益不是某个方案自身的属性，而是方案之间差异的属性——同一个结果，跟更差的选项比是收益，跟更好的选项比就是成本。
+
+举个例子：一份月薪 2 万的 offer，本身既不算「收益」也不算「成本」，要看你拿它跟谁比。
+
+- 跟月薪 1.5 万的选项比：它多给你 5 千，这 5 千是**收益**。
+- 跟月薪 2.6 万的选项比：选它就放弃了 6 千，这 6 千是它的**机会成本**——于是同样的「2 万」反而成了**成本**。
+
+数字没变，变的只是参照的对手。所以单独评价一个方案没有意义，至少要有两个选项（其中之一可以是「维持现状」），每个方案的成本、收益、评分都要锚定在某个基准方案或其他方案上来表达，而不是凭空给一个绝对分数。
 
 它会主动排除：
 
@@ -121,6 +128,21 @@ git clone https://github.com/RowanXB/decision-analyst <agent-skills-dir>/decisio
 ```
 
 不同 runtime 的 skills 目录位置可能不同；以你当前 agent 或 runtime 的文档、配置页面、环境变量为准。
+
+### 方式四：下载 zip 导入 Claude（Cowork / Chat）
+
+不想走命令行、想直接在 Claude（claude.ai）的 Cowork 或对话里用时，用这个方式。
+
+1. 从 GitHub Releases 下载打包好的 skill zip：
+   - 发布页：<https://github.com/RowanXB/decision-analyst/releases/latest>
+   - 直链下载：
+
+     ```text
+     https://github.com/RowanXB/decision-analyst/releases/download/v0.1.0/decision-analyst-v0.1.0.zip
+     ```
+
+2. 在 Claude 的 Skills / 能力（Capabilities）管理界面，选择「上传 / 导入 skill」，传入这个 zip。
+3. zip 内是标准 skill 包：顶层 `decision-analyst/` 目录，含 `SKILL.md`、`references/`、`agents/` 等运行所需文件（已剔除仓库开发文件）。导入并启用后，用 `$decision-analyst` 或中文「用 decision-analyst 帮我…」触发。
 
 即使 runtime 不支持自动加载 skills，也可以直接把 `SKILL.md` 的内容作为参考资料粘贴进对话。
 

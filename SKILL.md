@@ -15,6 +15,16 @@ For life or personal decisions, default to five dimensions: Sustainability, Reso
 
 Analyze only future consequences that can change because the user chooses one option instead of another. Exclude past, unrecoverable costs and any cost or benefit that is the same across all options. Include opportunity costs, avoidable costs, incremental benefits, risks, and future psychological or relational consequences only when they differ by option.
 
+## Mental Models
+
+Use these operating lenses throughout the analysis:
+
+- From-here-forward: the decision starts now. Past spending, effort, history, and identity commitments matter only when they create future consequences that differ by option.
+- Difference-making only: include a factor only when at least one option changes it and the change is material enough to affect the recommendation or the user's peace of mind.
+- Opportunity cost: choosing one option consumes time, capital, attention, or social capacity that could have gone to the best forgone alternative.
+- Expected value versus survivability: separate the option with the best expected score from the option with the safest downside when risk could harm health, finances, relationships, or irreversible life direction.
+- Values are weights, not vibes: values must affect the analysis through explicit weights, rankings, or stated priorities, not vague language that hides the tradeoff.
+
 ## Workflow
 
 ### 1. Frame the Decision
@@ -27,7 +37,7 @@ Clarify the decision object before analyzing:
 - Ask for missing options when the option set is unclear or when the user asks you to help generate options.
 - Identify hard constraints, decision horizon, reversibility, and the deadline for choosing.
 
-Do not start scoring while the options are vague.
+CHECKPOINT / STOP: Do not start scoring while the options are vague. Ask the single highest-value clarification question needed to define the option set.
 
 ### 2. Exclude Irrelevant Factors
 
@@ -50,7 +60,15 @@ For each option, list only incremental future consequences. For life or personal
 - Experience: the choice's effect on day-to-day subjective life. Include joy, interest, aversion, housing comfort, social satisfaction, autonomy, and everyday happiness. Core question: will daily life actually feel better or worse?
 - Alignment: whether the choice matches long-term values and life direction. Include ideals, meaning, social impact, educational fairness, identity, moral consistency, and becoming the kind of person the user wants to become. Core question: does this choice move the user closer to the path they truly want?
 
-For business or monetary-only decisions, calculate incremental financial consequences separately before mapping non-financial effects into the five dimensions when relevant.
+For business or monetary-only decisions, calculate incremental financial consequences before asking for values or mapping non-financial effects into the five dimensions. Use this template:
+
+- Choose a baseline option, usually the lowest-commitment or current-path option.
+- List incremental future costs, incremental future benefits or savings, opportunity costs, resale or salvage value, and timing differences.
+- Calculate `incremental net benefit = incremental future benefits - incremental future costs - opportunity costs`.
+- Use present value when timing, discount rate, or risk materially changes the comparison.
+- Show the break-even point or the assumption that would reverse the answer when the conclusion depends on one number.
+
+If the decision is purely monetary and there are no material non-financial tradeoffs, give a relevant-cost recommendation from incremental net benefit without requiring five-dimension weights. If non-financial tradeoffs remain material, show the financial result first, then continue into the five-dimension framework.
 
 ### 4. Load or Ask for Values and Unknowns
 
@@ -64,13 +82,18 @@ Ask concise questions whenever the answer affects the recommendation:
 - Ask for probabilities or scenario ranges when outcomes are uncertain.
 - Ask for missing facts that could change the top-ranked option.
 
-If no valid saved or user-provided weights are available, stop before weighted scoring and ask for weights. You may provide an unweighted comparison of relevant consequences, but you must not produce weighted totals or a weighted recommendation until the user provides weights.
+If no valid saved or user-provided weights are available, stop before weighted scoring and ask for weights. You may provide an unweighted comparison of relevant consequences and a clearly labeled non-weighted lean when one option is dominated, risk-protective, or materially stronger on the user's stated priorities. Do not produce weighted totals, a weighted winner, or a weighted recommendation until the user provides weights.
+
+When enough facts are available, infer initial impact scores from the stated facts and label each score with confidence. Do not force the user to score every option-dimension cell manually. Ask the user to confirm or revise only the 1-3 cells most likely to change the recommendation.
+
+CHECKPOINT / STOP: Before weighted scoring, show the weights, inferred impact scores, and the highest-impact assumptions. Ask for confirmation when any score is low-confidence, emotionally loaded, financially material, or likely to reverse the recommendation.
 
 ### 5. Persist User Value Weights
 
 When the user gives stable, reusable value weights or long-term preferences:
 
-- Save them to disk by default at `user-values.json` in the skill root directory, the same directory that contains this `SKILL.md`. If this skill has been installed or copied elsewhere, use that installed skill directory.
+- Ask whether the weights are durable long-term values or decision-specific weights. Persist only durable values.
+- Ask for explicit permission before writing durable weights to disk. If the user agrees, save them at `user-values.json` in the skill root directory, the same directory that contains this `SKILL.md`. If this skill has been installed or copied elsewhere, use that installed skill directory.
 - Use this JSON shape:
 
 ```json
@@ -95,6 +118,8 @@ When the user gives stable, reusable value weights or long-term preferences:
 
 Never invent durable user weights or pretend a file was written when it was not.
 
+CHECKPOINT / STOP: Never write `user-values.json` unless the user has confirmed both that the weights are durable and that disk persistence is allowed.
+
 ### 6. Score and Stress-Test
 
 Use a transparent weighted score only after valid saved or user-provided weights are available:
@@ -103,7 +128,7 @@ Use a transparent weighted score only after valid saved or user-provided weights
 
 Normalize weights to sum to 100. Use the same scoring direction across all dimensions: positive means the option improves that dimension relative to the baseline, negative means it worsens it.
 
-For financial or business decisions, calculate incremental net benefit first. Use present value when timing materially differs across options. Then combine financial results with non-financial dimensions only after converting them into comparable impact scores or treating finance as its own weighted dimension.
+For financial or business decisions, calculate incremental net benefit first. Use present value when timing materially differs across options. If money is the only material dimension, recommend the higher net-benefit option and show the sensitivity check. Then combine financial results with non-financial dimensions only after converting them into comparable impact scores or treating finance as its own weighted dimension.
 
 Run at least one sensitivity check:
 
@@ -119,8 +144,39 @@ Use this structure unless the user asks for another format:
 2. Excluded factors: sunk/common/non-changing items and why excluded.
 3. Relevant consequences: concise table by option.
 4. Weights and assumptions: show whether weights were discovered from skill-root `user-values.json` or provided by the user. If no valid weights are available, ask for weights and stop before scoring.
-5. Scoring table: dimensions, weights, option impact scores, weighted totals.
-6. Recommendation: top option, why it wins, confidence level, and what could change the answer.
+5. Scoring table: dimensions, weights, option impact scores, weighted totals. Include this only after valid weights are available.
+6. Recommendation: top option, why it wins, confidence level, and what could change the answer. If weights are missing, provide only a non-weighted lean or a pure financial relevant-cost recommendation, explicitly labeled as such.
 7. Next question or action: only the highest-value missing information or next step.
 
 Keep the conclusion candid. If scores are close, say so and explain the tradeoff instead of forcing certainty.
+
+## Failure Modes and Fallbacks
+
+| Trigger | First response | If still unresolved |
+|---|---|---|
+| Options are missing or vague | Ask one clarification question to identify the real alternatives | Provide only a decision-frame draft and stop before scoring |
+| User asks for more options | Generate options separately before analysis, then ask which options to score | Analyze only the selected option set |
+| No valid weights are available | Provide an unweighted relevant-consequence comparison and ask for weights or rankings | Stop before weighted totals and recommendation |
+| Saved weights exist but do not sum to 100 | Show the issue and offer a normalized version for confirmation | Use no saved weights until the user confirms or revises them |
+| User refuses weights but wants a recommendation | Explain that only an unweighted tradeoff summary is possible | Give a conditional recommendation based on stated priorities, not weighted totals |
+| One option is dominated without weights | Label the conclusion as a non-weighted lean and explain the domination | Ask for weights only if the user wants a weighted score or the tradeoff is close |
+| Decision is purely monetary | Calculate incremental net benefit and sensitivity before asking for values | Recommend the higher net-benefit option if non-financial tradeoffs are immaterial |
+| Impact scores are uncertain | Use ranges, confidence labels, and the value of information | Recommend the missing fact or reversible test that most improves the decision |
+| Top expected-score option has serious downside risk | Separate best expected score from safest option | Ask whether downside protection or upside maximization should dominate |
+| Skill root is not writable | Do not write `user-values.json`; keep weights in the conversation | Ask for a writable path only if the user still wants persistence |
+| Decision has legal, medical, immigration, tax, or regulated financial stakes | Use the framework for structure only and flag need for qualified professional advice | Do not present the result as professional advice |
+
+## Anti-Patterns
+
+Do not do these:
+
+- Do not repackage sunk costs as "experience value" unless they create future consequences that differ by option.
+- Do not double-count the same effect across Resources, Experience, Capital, or Alignment.
+- Do not output weighted totals, a weighted winner, or a weighted recommendation without valid weights.
+- Do not withhold a clearly labeled non-weighted lean when one option is dominated, risk-protective, or strongly aligned with priorities the user has already stated.
+- Do not ask for five-dimension weights before giving the relevant-cost answer to a purely monetary decision with no material non-financial tradeoff.
+- Do not treat the highest expected score as the safest option when downside risk matters.
+- Do not save private decision details, relationship history, health facts, one-off scores, or tactical context in `user-values.json`.
+- Do not invent default weights, durable values, probabilities, or missing facts.
+- Do not add compromise, hybrid, "try both," or status quo options unless the user asks for option generation or explicitly provides them.
+- Do not force certainty when scores are close; name the tradeoff and the fact or value shift that would change the answer.

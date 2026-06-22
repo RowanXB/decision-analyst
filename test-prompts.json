@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "prompt": "Use $decision-analyst. I have spent two years and a lot of tuition on a degree, but I am miserable and my health is getting worse. Should I stay or leave?",
+    "expected": "Exclude sunk tuition and past time, frame stay versus leave, separate future health/sustainability from capital loss, ask for weights before weighted scoring, and avoid pretending past investment is decision-relevant."
+  },
+  {
+    "id": 2,
+    "prompt": "Use $decision-analyst. My old machine has a book value of 5000. Repairing it costs 1800 and replacing it costs 4200. The new one saves about 900 per year for four years. What should I do?",
+    "expected": "Exclude book value, calculate incremental future repair versus replacement costs and savings, account for timing if material, and use relevant-cost logic before any non-financial scoring."
+  },
+  {
+    "id": 3,
+    "prompt": "Use $decision-analyst. I have two job offers: A pays much more but has brutal hours; B pays less but has better learning and a calmer life. Help me decide.",
+    "expected": "Use the five dimensions, infer initial impact scores with confidence labels, ask only for the decisive weights or uncertain scores, distinguish best expected score from safest option, and stop before weighted totals if weights are missing."
+  }
+]

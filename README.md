@@ -183,7 +183,7 @@ decision-analyst/
 
 ## 许可证
 
-   Copyright 2026 RowanXB
+   Copyright 2026 Chengyan Tong
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

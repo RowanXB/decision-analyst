@@ -82,13 +82,13 @@ Use these five dimensions for life and personal decisions. Keep them separate to
 
 ### 1. Sustainability
 
-Measure whether the choice can be maintained long term.
+Measure whether the choice can be maintained long term as a matter of objective bodily and functional capacity.
 
-Include health, sleep, energy, psychological stability, stress level, and whether the life rhythm is sustainable.
+Include health, sleep, energy, physical capacity, recovery capacity, stress load that affects bodily or functional stability, and whether the life rhythm is sustainable.
 
-Core question: will this choice make the user more stable, or more likely to break down?
+Core question: can the user's body and energy system keep carrying this choice, or does the option make breakdown, exhaustion, illness, or functional instability materially more likely?
 
-Do not evaluate happiness here. This dimension only evaluates whether the body and system can hold up.
+Do not evaluate ordinary happiness, unhappiness, dislike, boredom, discomfort, social awkwardness, or subjective preference here. Those belong in Experience. Count a subjective or emotional factor in Sustainability only when it is severe enough in context to materially impair bodily capacity or functional stability, such as through chronic sleep loss, exhaustion, illness, appetite disruption, panic-level instability, physical recovery problems, or inability to maintain the life rhythm. This dimension only evaluates whether the body and system can hold up.
 
 ### 2. Resources
 
@@ -114,13 +114,13 @@ Use this dimension to merge ability compounding, academic capital, and career ca
 
 ### 4. Experience
 
-Measure the choice's effect on everyday subjective life.
+Measure the choice's effect on everyday subjective life and felt experience.
 
-Include joy, interest, aversion, housing comfort, social satisfaction, autonomy, and everyday happiness.
+Include joy, interest, aversion, comfort or discomfort, housing experience, social satisfaction, autonomy, and everyday happiness.
 
 Core question: will the user's actual daily life feel better or worse?
 
-This is not health, resources, or ideals. It is the lived quality of daily experience.
+This is not health, resources, or ideals. It is the lived quality of daily experience. If a negative experience becomes severe enough to damage sleep, energy, recovery, physical health, or functional stability, count that capacity damage in Sustainability; keep the subjective unpleasantness in Experience only when it is separately material. Do not double-count the same harm in both dimensions.
 
 ### 5. Alignment
 
@@ -161,7 +161,7 @@ Use one of these approaches:
 
 Persist only stable weights across the five default dimensions. Situational weights, such as "for this month, Resources matters more than Capital," should be kept in the current decision unless the user explicitly says they reflect durable priorities.
 
-Default disk persistence path: `user-values.json` in the skill root directory, the same directory that contains `SKILL.md`. Read it before asking the user for weights or scoring. If it exists and is valid, explicitly show the discovered weights in the response and ask whether to use them as-is or adjust them for the current decision. If it is missing, ask the user for weights. If it exists but the five weights do not sum to 100 or required dimensions are missing, say the saved weights are invalid and ask whether to normalize or revise them.
+Default disk persistence path: `user-values.json` in the skill root directory, the same directory that contains `SKILL.md`. Read it before asking the user for weights or scoring. If it exists and is valid, explicitly show the discovered weights in the response and use them as the default weights without asking for permission. Ask about adjustments only when the user says the current decision should use different priorities or when the saved weights visibly conflict with stated current priorities. If it is missing, ask the user for weights. If it exists but the five weights do not sum to 100 or required dimensions are missing, say the saved weights are invalid and ask whether to normalize or revise them.
 
 ## Scoring
 

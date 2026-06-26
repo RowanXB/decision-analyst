@@ -66,11 +66,13 @@ For each option, list only incremental future consequences. For life or personal
 
 | Dimension      | Count here                                                                                                 | Do not count here                                                     |
 | -------------- | ---------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| Sustainability | health, sleep, energy, psychological stability, long-term maintainability                                  | happiness                                                             |
+| Sustainability | health, sleep, energy, physical capacity, recovery capacity, stress load that affects bodily or functional stability, long-term maintainability | ordinary happiness or unhappiness, comfort, aversion, preference, or subjective feeling that does not affect capacity |
 | Resources      | money, time, network and contacts, space, equipment, cash-flow pressure, non-refundable future commitments | emotional safety from money; internalized skills (those are Capital)  |
 | Capital        | skills, abilities, degree progress, grades, portfolio, self-growth                                         | daily comfort; money or network you merely hold (those are Resources) |
-| Experience     | joy, interest, aversion, housing comfort, social satisfaction, autonomy                                    | health, income, ideals                                                |
+| Experience     | joy, interest, aversion, comfort or discomfort, housing experience, social satisfaction, autonomy, subjective felt quality | health, sleep, energy, bodily capacity, income, ideals                |
 | Alignment      | values, meaning, identity, moral consistency, long-term direction                                          | short-term happiness alone                                            |
+
+Separate Sustainability from Experience strictly. Sustainability measures objective bodily and functional capacity: whether the user can physically and energetically keep going. Experience measures how the option feels to live through. Ordinary unpleasantness, boredom, dislike, discomfort, social awkwardness, or reduced happiness belongs in Experience, not Sustainability. Count an experience-related factor in Sustainability only when it is severe enough in context to materially affect bodily capacity or functional stability, such as causing chronic sleep loss, exhaustion, illness, appetite disruption, panic-level instability, physical recovery problems, or inability to maintain the life rhythm. When the same situation affects both dimensions, score only the capacity damage in Sustainability and the separately material felt quality in Experience; avoid double-counting the same harm.
 
 For every option-dimension cell, complete the `Benefits / Costs / Net assessment / Key uncertainty` analysis before assigning or inferring an impact score. Compression changes only how much of that analysis is shown to the user. For simple decisions, summarize each completed cell compactly; for high-stakes or ambiguous decisions, show the reasoning in more detail. If a dimension has no material cost or benefit, say so instead of inventing one. Use the net assessment to justify the later -5 to +5 impact score.
 
@@ -93,7 +95,7 @@ If the decision is purely monetary and there are no material non-financial trade
 Ask concise questions whenever the answer affects the recommendation:
 
 - Before asking for weights, check for `user-values.json` in the skill root directory.
-- If `user-values.json` exists and contains valid weights for Sustainability, Resources, Capital, Experience, and Alignment that sum to 100, state this in the response and display the discovered weights. Ask whether to use them as-is or adjust them for the current decision.
+- If `user-values.json` exists and contains valid weights for Sustainability, Resources, Capital, Experience, and Alignment that sum to 100, state this in the response, display the discovered weights, and use them as the default weights for current scoring without asking for permission. Ask about adjustments only when the user explicitly says the current decision should use different priorities or when the saved weights visibly conflict with stated current priorities.
 - If `user-values.json` is missing, ask the user to assign weights across Sustainability, Resources, Capital, Experience, and Alignment that sum to 100, or rank these five dimensions first if exact weights feel hard. Do not create temporary, provisional, assumed, or default weights.
 - If `user-values.json` exists but is invalid, state that saved weights were found but cannot be used, briefly name the issue, and ask the user to revise or normalize them.
 - Ask the user to rate each option's impact on each dimension, preferably on a -5 to +5 scale where 0 means no meaningful difference from the baseline.
@@ -106,7 +108,7 @@ If no valid saved or user-provided weights are available, stop before weighted s
 
 When enough facts are available, infer initial impact scores from the stated facts and label each score with confidence. Do not force the user to score every option-dimension cell manually. Ask the user to confirm or revise only the 1-3 cells most likely to change the recommendation.
 
-CHECKPOINT / STOP: Before weighted scoring, show the weights, inferred impact scores, and the highest-impact assumptions. Ask for confirmation when any score is low-confidence, emotionally loaded, financially material, or likely to reverse the recommendation.
+CHECKPOINT / STOP: Before weighted scoring, show the weights, inferred impact scores, and the highest-impact assumptions. Valid saved weights do not require confirmation before use. Ask for confirmation only when an inferred impact score is low-confidence, emotionally loaded, financially material, or likely to reverse the recommendation.
 
 ### 5. Persist User Value Weights
 
@@ -132,7 +134,7 @@ When the user gives stable, reusable value weights or long-term preferences:
 ```
 
 - Distinguish durable values from decision-specific weights. Persist only durable values, not one-off tactical weights.
-- On future decisions, read the skill-root `user-values.json` first when available, reuse saved weights as defaults, show the discovered weights in the response, and ask whether to adjust them for the current context.
+- On future decisions, read the skill-root `user-values.json` first when available, reuse saved weights as defaults without asking for permission, and show the discovered weights in the response. Ask whether to adjust them only if the user indicates the current decision should use different priorities.
 - If the skill root directory is unavailable or not writable, ask the user for a writable path before persisting. Until then, reuse the weights within the conversation and say they have not been written to disk.
 - Do not store sensitive decision details, private life history, or one-off scores in the weights file unless the user explicitly asks.
 

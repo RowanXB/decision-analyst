@@ -17,7 +17,7 @@
   {
     "id": 4,
     "prompt": "Use $decision-analyst. This weekend I can either work on my portfolio or attend a limited-seat elite networking dinner that feels too good to miss, but I do not know who will be there or what it leads to. Help me decide.",
-    "expected": "Check scarcity-aware opportunity cost by asking whether the dinner has expiry value, irreplaceability, or concrete option value. Exclude limited seats, prestige, social proof, or anticipated regret as FOMO if there is no material future consequence. Map any real network or career upside into Capital rather than creating a new scarcity dimension, and stop before weighted scoring if weights are missing."
+    "expected": "Check scarcity-aware opportunity cost by asking whether the dinner has expiry value, irreplaceability, or concrete option value. Exclude limited seats, prestige, social proof, or anticipated regret as FOMO if there is no material future consequence. Map concrete future network/contact access into Resources; map durable ability, portfolio, credential, or learned career capability into Capital only if the facts support it. Do not create a new scarcity dimension, and stop before weighted scoring if weights are missing."
   },
   {
     "id": 5,
@@ -28,5 +28,15 @@
     "id": 6,
     "prompt": "Use $decision-analyst. I can attend a two-week in-person organising programme, or use the same time to self-study data analysis and build a product. I lack real-world user contact, interviewing, and collaboration skills, but I also need data and engineering skills. Help me decide.",
     "expected": "Treat the options as competing ability-building paths. Ask about current level, bottleneck gaps, long-term user/customer value, concrete self-study plan, substitute quality, and evidence of learning. Compare the in-person programme's scarcity against realistic substitutes rather than treating limited seats as decisive. Score Capital using ability-capital value, including user-facing value, current gap, learning efficiency, transferability, and evidence strength. Stop before weighted totals if weights are missing."
+  },
+  {
+    "id": 7,
+    "prompt": "Use $decision-analyst. I can stay in my current apartment, which is safe and affordable but boring and uncomfortable, or move to a livelier place that I like more but would add a long commute and cut my sleep by about an hour most nights. Help me decide.",
+    "expected": "Separate ordinary boredom, dislike, and discomfort into Experience rather than Sustainability. Count the move's likely sleep loss, fatigue, and reduced recovery capacity in Sustainability if material. Avoid double-counting the same unpleasantness as both Sustainability and Experience. Use Resources for rent and commute costs, ask for or use valid saved weights before weighted totals, and stop before weighted scoring if no weights are available."
+  },
+  {
+    "id": 8,
+    "prompt": "Use $decision-analyst. The skill root contains a valid user-values.json. I am choosing between a higher-paying role with worse hours and a lower-paying role with better daily life. Help me decide.",
+    "expected": "Read the skill-root user-values.json when available, display the discovered weights exactly as read, and use valid weights that sum to 100 as the default for current scoring without asking permission. Ask about weight adjustments only if the user's stated current priorities conflict with the saved weights. Still show inferred impact scores and highest-impact assumptions before weighted scoring, and ask for confirmation only for low-confidence, emotionally loaded, financially material, or recommendation-reversing impact scores."
   }
 ]
